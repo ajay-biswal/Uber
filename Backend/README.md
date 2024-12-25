@@ -31,7 +31,7 @@ Example:
 }
 ```
 
-// ...existing documentation...
+...existing documentation...
 
 # User Login Endpoint
 
@@ -110,16 +110,16 @@ Register a new captain with vehicle details. Validates input data, hashes passwo
 ```json
 {
   "fullname": {
-    "firstname": "string",  // required, min 3 characters
-    "lastname": "string"    // required
+    "firstname": "string",
+    "lastname": "string"
   },
-  "email": "string",      // required, valid email format
-  "password": "string",   // required, min 8 characters
+  "email": "string",
+  "password": "string",
   "vehicle": {
-    "color": "string",    // required, min 3 characters
-    "plate": "string",    // required, min 3 characters
-    "capacity": number,   // required, min 1
-    "vehicleType": "string" // required, enum: ["car", "motorcycle", "auto"]
+    "color": "string",
+    "plate": "string",
+    "capacity": "number",
+    "vehicleType": "string"
   }
 }
 ```
