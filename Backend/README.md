@@ -94,3 +94,51 @@ Requires valid JWT token in either:
 ```http
 Authorization: Bearer <JWT_TOKEN>
 ````
+
+# Captain Registration Endpoint
+
+## Endpoint: `/captains/register`
+
+### Method: POST
+
+### Description:
+
+Register a new captain with vehicle details. Validates input data, hashes password, and creates captain account.
+
+### Request Body:
+
+```json
+{
+  "fullname": {
+    "firstname": "string",  // required, min 3 characters
+    "lastname": "string"    // required
+  },
+  "email": "string",      // required, valid email format
+  "password": "string",   // required, min 8 characters
+  "vehicle": {
+    "color": "string",    // required, min 3 characters
+    "plate": "string",    // required, min 3 characters
+    "capacity": number,   // required, min 1
+    "vehicleType": "string" // required, enum: ["car", "motorcycle", "auto"]
+  }
+}
+```
+
+### Example:
+
+curl -X POST http://localhost:3000/captains/register \
+-H "Content-Type: application/json" \
+-d '{
+"fullname": {
+"firstname": "John",
+"lastname": "Doe"
+},
+"email": "john.doe@example.com",
+"password": "password123",
+"vehicle": {
+"color": "black",
+"plate": "ABC123",
+"capacity": 4,
+"vehicleType": "car"
+}
+}'
