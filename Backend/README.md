@@ -30,3 +30,67 @@ Example:
   "password": "password123"
 }
 ```
+
+// ...existing documentation...
+
+# User Login Endpoint
+
+## Endpoint: `/users/login`
+
+### Method: POST
+
+### Description:
+
+Authenticates an existing user and returns a JWT token along with user details.
+
+### Request Body:
+
+```json
+{
+  "email": "john.doe@example.com", // required, valid email format
+  "password": "password123" // required, min 6 characters
+}
+```
+
+...existing registration and login documentation...
+
+# User Profile Endpoint
+
+## Endpoint: `/users/profile`
+
+### Method: GET
+
+### Description:
+
+Retrieves the profile information of the authenticated user.
+
+### Authentication:
+
+Requires JWT token in Authorization header or cookie.
+
+### Headers:
+
+````http
+Authorization: Bearer <JWT_TOKEN>
+
+
+// ...existing documentation...
+
+# User Logout Endpoint
+
+## Endpoint: `/users/logout`
+
+### Method: GET
+
+### Description:
+Invalidates the current JWT token by adding it to a blacklist and clears authentication cookies.
+
+### Authentication:
+Requires valid JWT token in either:
+- Authorization header
+- Cookie
+
+### Request Headers:
+```http
+Authorization: Bearer <JWT_TOKEN>
+````
